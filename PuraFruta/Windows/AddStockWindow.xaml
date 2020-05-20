@@ -1,0 +1,20 @@
+﻿<Window x:Class="PuraFruta.Windows.AddStockWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PuraFruta.Windows"
+        mc:Ignorable="d"
+        Title="Añadir Stock" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+            <ComboBox ItemsSource="{Binding Fruits}" SelectedItem="{Binding SelectedFruit}" Width="100"/>
+            <TextBox Text="{Binding Amount}" Width="50"/>
+            <TextBlock Text="{Binding FruitUnit}" Width="100"/>
+            <TextBlock Text="Precio de compra por Unidad" Width="160"/>
+            <TextBox Text="{Binding Price/Unit}" Width="100"/>
+            <Button Content="Añadir" Command="{Binding AddStock}"/>
+        </StackPanel>
+    </Grid>
+</Window>

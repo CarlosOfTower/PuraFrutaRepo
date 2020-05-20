@@ -1,0 +1,25 @@
+﻿<Window x:Class="PuraFruta.Windows.NewOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PuraFruta.Windows"
+        mc:Ignorable="d"
+        Title="Nuevo Pedido" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <ComboBox ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}" Width="100"/>
+            <DataGrid DataContext="{Binding Order}" ItemsSource="{Binding FruitOrders}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Fruta" Binding="{Fruit}"/>
+                    <DataGridTextColumn Header="Cantidad" Binding="{Amount}"/>
+                    <DataGridTextColumn Header="Unidad" Binding="{UnitMeasure}"/>
+                    <DataGridTextColumn Header="Precio/Unidad" Binding="{PricePerAmount}"/>
+                    <DataGridTextColumn Header="Total" Binding="{TotalPrice}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Enviar Pedido" Command="{Binding SendOrderCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>
