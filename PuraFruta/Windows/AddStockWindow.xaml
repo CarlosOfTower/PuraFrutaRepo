@@ -5,16 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PuraFruta.Windows"
         mc:Ignorable="d"
-        Title="Añadir Stock" Height="450" Width="800"
+        Title="Añadir Stock" Height="150" Width="600" ResizeMode="NoResize"
         Loaded="Window_Loaded">
     <Grid HorizontalAlignment="Center">
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-            <ComboBox ItemsSource="{Binding Fruits}" SelectedItem="{Binding SelectedFruit}" Width="100"/>
-            <TextBox Text="{Binding Amount}" Width="50"/>
-            <TextBlock Text="{Binding FruitUnit}" Width="100"/>
-            <TextBlock Text="Precio de compra por Unidad" Width="160"/>
-            <TextBox Text="{Binding Price/Unit}" Width="100"/>
-            <Button Content="Añadir" Command="{Binding AddStock}"/>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,20">
+                <ComboBox ItemsSource="{Binding Fruits}" SelectedItem="{Binding SelectedFruit}" Width="200"/>
+                <TextBox Text="{Binding Amount}" Width="50" Margin="10,0"/>
+                <TextBlock Text="{Binding FruitUnit}" Width="100"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Precio de compra por Unidad" Width="160" Margin="0,2"/>
+                <TextBox Text="{Binding Price/Unit}" Width="100" Margin="5,0"/>
+                <TextBlock Text="€/Unidad" Margin="2,2,10,0"/>
+                <Button Content="Añadir" Command="{Binding AddStock}" Width="50" Background="LightGreen"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

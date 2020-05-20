@@ -13,11 +13,12 @@ namespace PuraFruta.Windows
     {
         public NewOrderWindowViewModel()
         {
-
+            AddItemsToOrderCommand = new RelayCommand(AddItemToOrder);
             SendOrderCommand = new RelayCommand(SendOrder);
         }
 
         #region Commands
+        public RelayCommand AddItemsToOrderCommand { get; set; }
         public RelayCommand SendOrderCommand { get; set; }
         #endregion
 
@@ -55,6 +56,12 @@ namespace PuraFruta.Windows
         private void SetCustomer()
         {
             //Order.Customer = SelectedCustomer;
+        }
+
+        private void AddItemToOrder()
+        {
+            //TODO var fruitOrder = new fruitOrder()....
+            //Order.FruitOrders.Add(fruitOrder);
         }
 
         private void SendOrder()

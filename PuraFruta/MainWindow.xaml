@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PuraFruta"
         mc:Ignorable="d"
-        Title="PURA FRUTA" Height="450" Width="800"
+        Title="PURA FRUTA" Height="450" Width="800" ResizeMode="NoResize"
+        DataContext="MainWindowViewModel"
         Loaded="Window_Loaded">
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">

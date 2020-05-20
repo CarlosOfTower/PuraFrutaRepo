@@ -13,5 +13,12 @@ namespace PuraFruta
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            var window = new MainWindow();
+            var viewModel = new MainWindowViewModel();
+            window.DataContext = viewModel;
+            window.Show();
+        }
     }
 }

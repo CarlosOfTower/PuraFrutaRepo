@@ -1,9 +1,9 @@
 ﻿<Application x:Class="PuraFruta.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:PuraFruta"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:PuraFruta">
     <Application.Resources>
          
     </Application.Resources>
+   
 </Application>
