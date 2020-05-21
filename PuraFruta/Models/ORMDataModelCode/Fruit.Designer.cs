@@ -30,17 +30,23 @@ namespace PuraFruta.Models.ORMDataModel
             get { return fDescription; }
             set { SetPropertyValue<string>(nameof(Description), ref fDescription, value); }
         }
-        string fUnitMeasure;
-        public string UnitMeasure
+        UnitMeasure fUnitMeasure;
+        public UnitMeasure UnitMeasure
         {
             get { return fUnitMeasure; }
-            set { SetPropertyValue<string>(nameof(UnitMeasure), ref fUnitMeasure, value); }
+            set { SetPropertyValue<UnitMeasure>(nameof(UnitMeasure), ref fUnitMeasure, value); }
         }
-        string fUnitPrice;
-        public string UnitPrice
+        decimal fUnitPricePurchase;
+        public decimal UnitPricePurchase
         {
-            get { return fUnitPrice; }
-            set { SetPropertyValue<string>(nameof(UnitPrice), ref fUnitPrice, value); }
+            get { return fUnitPricePurchase; }
+            set { SetPropertyValue<decimal>(nameof(UnitPricePurchase), ref fUnitPricePurchase, value); }
+        }
+        decimal fUnitPriceSell;
+        public decimal UnitPriceSell
+        {
+            get { return fUnitPriceSell; }
+            set { SetPropertyValue<decimal>(nameof(UnitPriceSell), ref fUnitPriceSell, value); }
         }
         string fDateInserted;
         public string DateInserted

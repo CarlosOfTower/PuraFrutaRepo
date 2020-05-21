@@ -1,4 +1,6 @@
 ﻿using PuraFruta.Helpers;
+using PuraFruta.Models;
+using PuraFruta.Models.ORMDataModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,18 +16,36 @@ namespace PuraFruta.Windows
         public AddStockWindowViewModel()
         {
             AddStockCommand = new RelayCommand (AddStock);
+            AddNewFruitCommand = new RelayCommand(AddNewFruit);
         }
 
         #region Commands
         public RelayCommand AddStockCommand { get; set; }
+        public RelayCommand AddNewFruitCommand { get; set; }
         #endregion
 
         #region Properties
-        //TODO public List<Fruit> Fruits => new List<Fruit> .Select
-        //TODO public Fruit SelectedFruit { get; set; }
+        //TODO initiate Fruits and Units from DB -> Dependency Injection in Constructor
+        public List<Fruit> Fruits => new List<Fruit>();
+        public List<UnitMeasure> FruitUnitsList => new List<UnitMeasure>();
 
-        private int _amount;
-        public int Amount
+        #region Existing Fruit
+        private string _selectedFruit;
+        public string SelectedFruit
+        {
+            get
+            {
+                return _selectedFruit;
+            }
+            set
+            {
+                _selectedFruit = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private decimal _amount;
+        public decimal Amount
         {
             get
             {
@@ -37,9 +57,35 @@ namespace PuraFruta.Windows
                 OnPropertyChanged();
             }
         }
+        private decimal _priceUnitPurchase;
+        public decimal PriceUnitPurchase
+        {
+            get
+            {
+                return _priceUnitPurchase;
+            }
+            set
+            {
+                _priceUnitPurchase = value;
+                OnPropertyChanged();
+            }
+        }
+        private decimal _priceUnitSell;
+        public decimal PriceUnitSell
+        {
+            get
+            {
+                return _priceUnitSell;
+            }
+            set
+            {
+                _priceUnitSell = value;
+                OnPropertyChanged();
+            }
+        }
 
-        private string _fruitUnit;
-        public string FruitUnit
+        private UnitMeasure _fruitUnit;
+        public UnitMeasure FruitUnit
         {
             get
             {
@@ -52,12 +98,109 @@ namespace PuraFruta.Windows
             }
         }
         #endregion
+        #region New Fruit
+        private string _newFruitName;
+        public string NewFruitName
+        {
+            get
+            {
+                return _newFruitName;
+            }
+            set
+            {
+                _newFruitName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private decimal _newFruitAmount;
+        public decimal NewFruitAmount
+        {
+            get
+            {
+                return _newFruitAmount;
+            }
+            set
+            {
+                _newFruitAmount = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private decimal _newFruitPriceUnitPurchase;
+        public decimal NewFruitPriceUnitPurchase
+        {
+            get
+            {
+                return _newFruitPriceUnitPurchase;
+            }
+            set
+            {
+                _newFruitPriceUnitPurchase = value;
+                OnPropertyChanged();
+            }
+        }
+        private decimal _newFruitPriceUnitSell;
+        public decimal NewFruitPriceUnitSell
+        {
+            get
+            {
+                return _newFruitPriceUnitSell;
+            }
+            set
+            {
+                _newFruitPriceUnitSell = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private UnitMeasure _newFruitUnit;
+        public UnitMeasure NewFruitUnit
+        {
+            get
+            {
+                return _newFruitUnit;
+            }
+            set
+            {
+                _newFruitUnit = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _newFruitDescription;
+        public string NewFruitDescription
+        {
+            get
+            {
+                return _newFruitDescription;
+            }
+            set
+            {
+                _newFruitDescription = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
+        #endregion
 
         private void AddStock()
         {
-            //TODO Animation to show Added
+            if (Fruits.Select(f=>f.Name).Contains(SelectedFruit))
+            {
+                Fruits.FirstOrDefault(f => f.Name == SelectedFruit).AddStock(Amount);
+            }
+            else
+            {
+            }
         }
 
+        private void AddNewFruit()
+        {
+            Fruit newFruit = new Fruit(NewFruitName, NewFruitDescription, NewFruitAmount, NewFruitUnit, NewFruitPriceUnitPurchase, NewFruitPriceUnitSell);
+            Fruits.Add(newFruit);
+        }
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;

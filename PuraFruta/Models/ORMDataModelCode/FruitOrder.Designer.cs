@@ -18,11 +18,11 @@ namespace PuraFruta.Models.ORMDataModel
 
     public partial class FruitOrder : XPObject
     {
-        Fruit fFruitPrice;
-        public Fruit FruitPrice
+        Fruit fFruit;
+        public Fruit Fruit
         {
-            get { return fFruitPrice; }
-            set { SetPropertyValue<Fruit>(nameof(FruitPrice), ref fFruitPrice, value); }
+            get { return fFruit; }
+            set { SetPropertyValue<Fruit>(nameof(Fruit), ref fFruit, value); }
         }
         decimal fAmount;
         public decimal Amount

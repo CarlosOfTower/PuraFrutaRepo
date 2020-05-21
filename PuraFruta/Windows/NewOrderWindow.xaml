@@ -18,13 +18,13 @@
                 <TextBox Text="{Binding Quantity}" Width="50"/>
                 <Button Content="+" Command="{Binding AddItemsToOrderCommand}" Margin="10,0" Width="20"/>
             </StackPanel>
-            <DataGrid DataContext="{Binding Order}" ItemsSource="{Binding FruitOrders}" MinHeight="200">
+            <DataGrid x:Name="OrderDataGrid" DataContext="{Binding Order}" ItemsSource="{Binding FruitOrders}" MinHeight="200">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Fruta" Binding="{Binding Fruit}" Width="150"/>
+                    <DataGridTextColumn Header="Fruta" Binding="{Binding Fruit.Name}" Width="150"/>
                     <DataGridTextColumn Header="Cantidad" Binding="{Binding Amount}"/>
-                    <DataGridTextColumn Header="Unidad" Binding="{Binding UnitMeasure}"/>
-                    <DataGridTextColumn Header="Precio/Unidad" Binding="{Binding PricePerAmount}"/>
-                    <DataGridTextColumn Header="Total" Binding="{Binding TotalPrice}" Width="100"/>
+                    <DataGridTextColumn Header="Unidad" Binding="{Binding Fruit.UnitMeasure}"/>
+                    <DataGridTextColumn Header="Precio/Unidad" Binding="{Binding Fruit.UnitPriceSell}"/>
+                    <DataGridTextColumn Header="Total" Binding="{Binding DataContext.TotalPrice, ElementName=OrderDataGrid}" Width="100"/>
                 </DataGrid.Columns>
             </DataGrid>
             <Button Content="Enviar Pedido" Command="{Binding SendOrderCommand}" VerticalAlignment="Bottom" Margin="0,10" Height="30" Width="100"/>

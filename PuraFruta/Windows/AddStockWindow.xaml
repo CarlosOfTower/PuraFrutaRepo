@@ -5,21 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PuraFruta.Windows"
         mc:Ignorable="d"
-        Title="Añadir Stock" Height="150" Width="600" ResizeMode="NoResize"
+        Title="Añadir Stock" MinHeight="200" Width="700"
         Loaded="Window_Loaded">
-    <Grid HorizontalAlignment="Center">
-        <StackPanel Orientation="Vertical">
+    <Grid HorizontalAlignment="Left" Margin="50,0">
+        <StackPanel Orientation="Vertical" Width="600" Margin="0,20">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,20">
-                <ComboBox ItemsSource="{Binding Fruits}" SelectedItem="{Binding SelectedFruit}" IsEditable="True" Width="200"/>
+                <ComboBox ItemsSource="{Binding Fruits}" SelectedItem="{Binding SelectedFruit}" Width="200"/>
                 <TextBox Text="{Binding Amount}" Width="50" Margin="10,0"/>
                 <TextBlock Text="{Binding FruitUnit}" Width="100"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <TextBlock Text="Precio de compra por Unidad" Width="160" Margin="0,2"/>
-                <TextBox Text="{Binding Price/Unit}" Width="100" Margin="5,0"/>
+                <TextBox Text="{Binding PriceUnitPurchase}" Width="100" Margin="5,0"/>
                 <TextBlock Text="€/Unidad" Margin="2,2,10,0"/>
-                <Button Content="Añadir" Command="{Binding AddStock}" Width="50" Background="LightGreen"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Precio de venta por Unidad" Width="160" Margin="0,2"/>
+                <TextBox Text="{Binding PriceUnitSell}" Width="100" Margin="5,0"/>
+                <TextBlock Text="€/Unidad" Margin="2,2,10,0"/>
+                <Button Content="Añadir" Command="{Binding AddStockCommand}" Width="50" Background="LightGreen"/>
+            </StackPanel>
+
+
+            <Expander Header="Añadir nuevo tipo de fruta" HorizontalAlignment="Left" BorderThickness="1" BorderBrush="Black" Margin="0,20" Padding="10" Width="550">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="Nombre: "/>
+                        <TextBox Text="{Binding NewFruitName}" Width="267"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,5">
+                        <TextBlock Text="Cantidad: "/>
+                        <TextBox Text="{Binding NewFruitAmount}" Width="50" Margin="10,0"/>
+                        <TextBlock Text="Unidad: "/>
+                        <ComboBox ItemsSource="{Binding FruitUnitsList}" SelectedItem="{Binding NewFruitUnit}" Width="150"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="Precio de compra por Unidad" Width="160" Margin="0,2"/>
+                        <TextBox Text="{Binding NewFruitPriceUnitPurchase}" Width="100" Margin="5,0"/>
+                        <TextBlock Text="€/Unidad" Margin="2,2,10,0"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,5">
+                        <TextBlock Text="Precio de venta por Unidad" Width="160" Margin="0,2"/>
+                        <TextBox Text="{Binding NewFruitPriceUnitSell}" Width="100" Margin="5,0"/>
+                        <TextBlock Text="€/Unidad" Margin="2,2,10,0"/>
+                        <Button Content="Añadir" Command="{Binding AddNewFruitCommand}" Width="50" Background="LightGreen"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <TextBlock Text="Descripcion de Fruta (opcional)" Margin="2,2,10,0"/>
+                        <TextBox Text="{Binding NewFruitDescription}" Width="340" Margin="5,0"/>
+                    </StackPanel>
+                </StackPanel>
+            </Expander> 
         </StackPanel>
     </Grid>
 </Window>

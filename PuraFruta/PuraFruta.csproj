@@ -87,7 +87,10 @@
     <Compile Include="Models\ORMDataModelCode\Order.Designer.cs">
       <DependentUpon>Order.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\MeasureUnit.cs" />
+    <Compile Include="Models\ORMDataModelCode\UnitMeasure.cs" />
+    <Compile Include="Models\ORMDataModelCode\UnitMeasure.Designer.cs">
+      <DependentUpon>UnitMeasure.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\NewOrderWindow.xaml.cs">
       <DependentUpon>NewOrderWindow.xaml</DependentUpon>
     </Compile>
