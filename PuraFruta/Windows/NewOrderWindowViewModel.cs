@@ -66,7 +66,7 @@ namespace PuraFruta.Windows
 
         private void SendOrder()
         {
-            //var invoice = new Invoice(Order);
+            //TODO
         }
 
         #region INotifyPropertyChanged

@@ -16,9 +16,6 @@ namespace PuraFruta
         {
             AddStockCommand = new RelayCommand(AddStock);
             NewOrderCommand = new RelayCommand(NewOrder);
-
-            AddStockWindowVM = new AddStockWindowViewModel();
-            NewOrderWindowVM = new NewOrderWindowViewModel();
         }
 
         #region Commands
@@ -27,21 +24,19 @@ namespace PuraFruta
         #endregion
 
         #region Properties
-        public AddStockWindowViewModel AddStockWindowVM { get; set; }
-        public NewOrderWindowViewModel NewOrderWindowVM { get; set; }
         #endregion
 
         private void AddStock()
         {
             var window = new AddStockWindow();
-            window.DataContext = AddStockWindowVM;
+            window.DataContext = new AddStockWindowViewModel();
             window.Show();
         }
 
         private void NewOrder()
         {
             var window = new NewOrderWindow();
-            window.DataContext = NewOrderWindowVM;
+            window.DataContext = new NewOrderWindowViewModel();
             window.Show();
         }
 
