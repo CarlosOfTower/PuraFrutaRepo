@@ -11,6 +11,13 @@ namespace PuraFruta.Models.ORMDataModel
     public partial class FruitOrder
     {
         public FruitOrder(Session session) : base(session) { }
+
+        public FruitOrder(Fruit fruit, decimal quantity)
+        {
+            Fruit = fruit;
+            Amount = quantity;
+        }
+
         public override void AfterConstruction() { base.AfterConstruction(); }
     }
 

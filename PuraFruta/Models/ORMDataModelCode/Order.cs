@@ -12,6 +12,11 @@ namespace PuraFruta.Models.ORMDataModel
     {
         public Order(Session session) : base(session) { }
         public override void AfterConstruction() { base.AfterConstruction(); }
+
+        internal void SetTime()
+        {
+            Date = DateTime.Now.ToString("HH:mm:ss");
+        }
     }
 
 }

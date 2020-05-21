@@ -46,3 +46,4 @@ C:\Users\Breanna\Desktop\Carlos\PuraFrutaRepo\PuraFruta\obj\Debug\PuraFruta.pdb
 C:\Users\Breanna\Desktop\Carlos\PuraFrutaRepo\PuraFruta\bin\Debug\x86\sqlite3.dll
 C:\Users\Breanna\Desktop\Carlos\PuraFrutaRepo\PuraFruta\bin\Debug\x64\sqlite3.dll
 C:\Users\Breanna\Desktop\Carlos\PuraFrutaRepo\PuraFruta\obj\Debug\PuraFruta_Content.g.cs
+C:\Users\Breanna\Desktop\Carlos\PuraFrutaRepo\PuraFruta\obj\Debug\PuraFruta.csprojAssemblyReference.cache
