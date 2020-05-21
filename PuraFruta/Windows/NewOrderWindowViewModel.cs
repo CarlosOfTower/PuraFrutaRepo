@@ -98,8 +98,12 @@ namespace PuraFruta.Windows
             else
             {
                 if (Order.FruitOrders.Count == 0)
-                { 
-                    Order = Customers.FirstOrDefault(c => c.Name == SelectedCustomer).LastOrder;
+                {
+                    var lastOrder = Customers.FirstOrDefault(c => c.Name == SelectedCustomer)?.LastOrder;
+                    if (lastOrder != null)
+                    { 
+                        Order = lastOrder;
+                    }
                 }
             }
         }
