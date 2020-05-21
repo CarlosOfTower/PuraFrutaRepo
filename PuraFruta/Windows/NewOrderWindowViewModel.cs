@@ -29,6 +29,7 @@ namespace PuraFruta.Windows
         #region Properties
         //TODO Get from DB
         public List<Customer> Customers => new List<Customer>();
+        public List<Fruit> Fruits => new List<Fruit>();
 
         private Order _order;
         public Order Order
@@ -44,8 +45,8 @@ namespace PuraFruta.Windows
             }
         }
 
-        private string _selectedCustomer;
-        public string SelectedCustomer
+        private Customer _selectedCustomer;
+        public Customer SelectedCustomer
         {
             get
             {
@@ -89,21 +90,17 @@ namespace PuraFruta.Windows
 
         private void SetCustomer()
         {
-            Order.Customer = Customers.FirstOrDefault(c=>c.Name == SelectedCustomer);
+            Order.Customer = SelectedCustomer;
         }
 
         private void RecoverLastCustomerOrder()
         {
-            if (string.IsNullOrEmpty(SelectedCustomer)) return;
+            if (SelectedCustomer == null) return;
             else
             {
                 if (Order.FruitOrders.Count == 0)
                 {
-                    var lastOrder = Customers.FirstOrDefault(c => c.Name == SelectedCustomer)?.LastOrder;
-                    if (lastOrder != null)
-                    { 
-                        Order = lastOrder;
-                    }
+                    Order = SelectedCustomer.LastOrder;
                 }
             }
         }
