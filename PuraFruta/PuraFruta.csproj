@@ -75,6 +75,10 @@
     <Compile Include="Models\ORMDataModelCode\Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ORMDataModelCode\Fruit.cs" />
+    <Compile Include="Models\ORMDataModelCode\Fruit.Designer.cs">
+      <DependentUpon>Fruit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\ORMDataModelCode\FruitOrder.cs" />
     <Compile Include="Models\ORMDataModelCode\FruitOrder.Designer.cs">
       <DependentUpon>FruitOrder.cs</DependentUpon>
@@ -83,6 +87,7 @@
     <Compile Include="Models\ORMDataModelCode\Order.Designer.cs">
       <DependentUpon>Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\MeasureUnit.cs" />
     <Compile Include="Windows\NewOrderWindow.xaml.cs">
       <DependentUpon>NewOrderWindow.xaml</DependentUpon>
     </Compile>

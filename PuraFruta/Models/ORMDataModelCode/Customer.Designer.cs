@@ -42,6 +42,12 @@ namespace PuraFruta.Models.ORMDataModel
             get { return fTotalOrdersAmount; }
             set { SetPropertyValue<double>(nameof(TotalOrdersAmount), ref fTotalOrdersAmount, value); }
         }
+        Order fLastOrder;
+        public Order LastOrder
+        {
+            get { return fLastOrder; }
+            set { SetPropertyValue<Order>(nameof(LastOrder), ref fLastOrder, value); }
+        }
     }
 
 }
